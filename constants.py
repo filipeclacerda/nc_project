@@ -1,0 +1,1 @@
+URL = 'https://api.jovemnerd.com.br/wp-json/jovemnerd/v1/nerdcasts/?offset=0&page=1&per_page=20000&paginated=true&post__not_in[]=549063&post__not_in[]=548694&post__not_in[]=548603&post__not_in[]=548358'
