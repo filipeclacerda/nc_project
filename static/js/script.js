@@ -35,7 +35,7 @@ function renderEpisodes(episodes){
         $(".episodes").append(`
         <div class="item--episode">
            <a href="${episode.link}" target="_blank"><img class="episode-image" src="${episode.imgUrl}"></a>
-            <a class="episode--link" href="${episode.link}" target="_blank" id="${episode.number}">${episode.name}<a/>
+            <a class="episode--link" href="${episode.link}" target="_blank" id="${episode.number}">${episode.name}</a>
         </div>`)
     });
 }
@@ -53,7 +53,7 @@ function listGuests(filter){
         $("#guests").append(`
         <p class="item--guest">
             <input type="checkbox" onchange="putOrRemoveGuest(this.value)" id="${i}" name="guests" value="${guest}" ${selectedGuests.includes(guest)? 'checked' : ''}>
-            <label for="${i}">${guest}<label/>
+            <label for="${i}">${guest}</label>
         </p>`)
     });
 }

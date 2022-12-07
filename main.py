@@ -23,6 +23,10 @@ def getEpisodes():
     return episodes
 
 
+def getAllEpisodesJson():
+    return jsonEpisodes(getEpisodes())
+
+
 def searchEpisodesByGuests(guests):
     episodes = getEpisodes()
     searchResults = []
