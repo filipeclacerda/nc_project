@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    max-width: 440px;
 }
 
 .episode-image{
@@ -46,6 +47,19 @@
 body{
     background-color: #14141C;
     overflow: hidden;
+}
+
+.search{
+    width: 100%;
+    border: 2px solid #2c8585;
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.search:focus{
+    border: 3px solid #3BB4B4;
+    border-radius: 10px;
+    outline: #3BB4B4
 }
 
 .button-bg{
