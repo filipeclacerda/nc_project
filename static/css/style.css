@@ -4,3 +4,81 @@
 .item--guest label{
     margin-left: 5px;
 }
+
+.scroll{
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    overflow-y: scroll;
+    color: #ffffff;
+    padding: 0px 20px;
+}
+.background--grey{
+    width: 100%;
+    border-radius: 15px;
+    background-color: #282830;
+    height:90vh;
+}
+
+.item--episode{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.episode-image{
+    width: 440px;
+    height: 235px;
+    border-radius: 15px;
+}
+
+.episodes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conteudo{
+    padding: 50px;
+}
+
+body{
+    background-color: #14141C;
+    overflow: hidden;
+}
+
+.button-bg{
+    border-radius: 15px;
+    background-color: #282830;
+    width: 100%;
+    padding: 15px 25px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}
+
+button{
+    background-color: #3BB4B4;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px 20px;
+    transition: 0.2s ease;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: #2c8585;
+}
+
+.episode--link{
+    color: #3BB4B4;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15pt;
+}
+
+.episode--link:hover{
+    color: #2c8585;
+}
