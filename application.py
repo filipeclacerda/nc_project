@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from flask import request
-from main import getAllEpisodesJson, searchEpisodesByGuests
+from main import getAllEpisodesJson, refreshEpisodesList, searchEpisodesByGuests
 
 application = Flask(__name__)
 app = application
@@ -23,4 +23,9 @@ def guests():
 
     return response
 
+@application.route("/api/refresh")
+def refresh():
+    response = refreshEpisodesList()
+    return response
+ 
 app.run()

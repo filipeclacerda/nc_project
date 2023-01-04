@@ -8,6 +8,7 @@ def refreshEpisodesList():
     r = requests.get(URL)
     with open("all_ncs.json", "w") as outfile:
         outfile.write(json.dumps(r.json(), indent=4))
+    return r.json()
 
 
 def getRawEpisodesList():
@@ -19,7 +20,7 @@ def getEpisodes():
     raw_episodes = getRawEpisodesList()["data"]
     episodes = []
     for episode in raw_episodes:
-        episodes.append(Episode(episode["title"], episode["url"], episode["episode"], episode["guests"], episode["image"]))
+        episodes.append(Episode(episode["title"], episode["url"], episode["episode"], episode["guests"], episode["image"], episode["pub_date"]))
     return episodes
 
 
@@ -44,7 +45,8 @@ def jsonEpisodes(episodes):
             "name": episode.name,
             "link": episode.link,
             "guests": episode.guests,
-            "imgUrl": episode.imgUrl
+            "imgUrl": episode.imgUrl,
+            "pub_date": episode.pub_date
         }
         json_episodes.append(json_episode)
     return json_episodes
