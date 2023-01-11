@@ -17,8 +17,11 @@ $(document).ready(() => {
 
     $('#button_clear').click( () => {
         clearAllGuests()
-    })  
+    })
 
+    $(document).click(function() {
+        document.getElementById("search").focus();
+    });
 })
 
 let selectedGuests = []
@@ -55,6 +58,8 @@ function renderEpisodes(episodes) {
             <a class="episode--link" href="${episode.link}" target="_blank" id="${episode.number}">${episode.number} - ${episode.name}</a>
         </div>`)
     });
+    $("#search").val("");
+    $('.scroll').scrollTop(0);
 }
 
 function listGuests(filter) {
@@ -67,11 +72,16 @@ function listGuests(filter) {
     console.log(filteredGuests)
     $("#guests").html('')
     filteredGuests.forEach((guest, i) => {
-        $("#guests").append(`
+        p = `
         <p class="item--guest">
-            <input type="checkbox" onchange="putOrRemoveGuest(this.value)" id="${i}" name="guests" value="${guest}" ${selectedGuests.includes(guest) ? 'checked' : ''}>
+            <input type="checkbox" onchange="putOrRemoveGuest(this.value)" class="checkmark" id="${i}" name="guests" value="${guest}" ${selectedGuests.includes(guest) ? 'checked' : ''}>
             <label for="${i}">${guest}</label>
-        </p>`)
+        </p>`
+        if (selectedGuests.includes(guest)){
+            $("#guests").prepend(p)
+        }else{
+            $("#guests").append(p)
+        }
     });
 }
 
@@ -91,6 +101,7 @@ function putOrRemoveGuest(guest) {
             renderEpisodes(response.data)
         }).finally(()=>{
             $('.loader').hide()
+            listGuests()
         });
 }
 
