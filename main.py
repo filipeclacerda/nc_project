@@ -16,11 +16,18 @@ def getRawEpisodesList():
        return json.load(openfile)
 
 
+def filterEpisodes(product, filters):
+    if product in filters:
+        return True
+    return False
+
+
 def getEpisodes():
     raw_episodes = getRawEpisodesList()["data"]
     episodes = []
     for episode in raw_episodes:
-        episodes.append(Episode(episode["title"], episode["url"], episode["episode"], episode["guests"], episode["image"], episode["pub_date"]))
+        if filterEpisodes(episode["product"], ["nerdcast","caneca-de-mamicas"]):
+            episodes.append(Episode(episode["title"], episode["url"], episode["episode"], episode["guests"], episode["image"], episode["pub_date"]))
     return episodes
 
 
